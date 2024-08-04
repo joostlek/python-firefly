@@ -2,20 +2,16 @@
 
 from __future__ import annotations
 
-import asyncio
-from datetime import date
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 import aiohttp
-from aiohttp.hdrs import METH_GET, METH_POST, METH_PUT, METH_DELETE
-from aioresponses import CallbackResult, aioresponses
+from aioresponses import aioresponses
 import pytest
-from yarl import URL
 
 from vuurvlieg import Vuurvlieg, FireflyError
 from tests import load_fixture
 
-from .const import HEADERS, FIREFLY_URL
+from .const import FIREFLY_URL
 
 if TYPE_CHECKING:
     from syrupy import SnapshotAssertion
@@ -83,4 +79,3 @@ async def test_about(
         body=load_fixture("about.json"),
     )
     assert await firefly_client.get_about() == snapshot
-
