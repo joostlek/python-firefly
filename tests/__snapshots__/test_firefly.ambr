@@ -1,0 +1,10 @@
+# serializer version: 1
+# name: test_about
+  dict({
+    'api_version': '2.1.0',
+    'driver': 'sqlite',
+    'os': 'Linux',
+    'php_version': '8.3.9',
+    'version': '6.1.19',
+  })
+# ---

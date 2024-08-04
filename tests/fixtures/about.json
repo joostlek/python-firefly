@@ -1,0 +1,9 @@
+{
+    "data": {
+        "version": "6.1.19",
+        "api_version": "2.1.0",
+        "php_version": "8.3.9",
+        "os": "Linux",
+        "driver": "sqlite"
+    }
+}
