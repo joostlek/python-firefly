@@ -3,21 +3,18 @@
 from __future__ import annotations
 
 import asyncio
-import json
 from dataclasses import dataclass
 from importlib import metadata
-from typing import TYPE_CHECKING, Any, Self
+from typing import Any, Self
 
 from aiohttp import ClientSession
-from aiohttp.hdrs import METH_GET, METH_POST, METH_PUT, METH_DELETE
-from mashumaro.codecs.orjson import ORJSONDecoder
+from aiohttp.hdrs import METH_GET
 from yarl import URL
 
 
-from vuurvlieg.models import AboutResponse
+from vuurvlieg.models import AboutResponse, About
 
 from vuurvlieg.exceptions import FireflyError, FireflyConnectionError
-
 
 VERSION = metadata.version(__package__)
 
@@ -65,7 +62,6 @@ class Vuurvlieg:
         except asyncio.TimeoutError as exception:
             msg = "Timeout occurred while connecting to Firefly"
             raise FireflyConnectionError(msg) from exception
-
 
         content_type = response.headers.get("Content-Type", "")
 
